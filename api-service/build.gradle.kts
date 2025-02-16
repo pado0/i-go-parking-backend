@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
+    implementation(project(":core:security-core"))
     testImplementation(kotlin("test"))
 }
 
@@ -18,4 +19,11 @@ tasks.test {
 }
 kotlin {
     jvmToolchain(21)
+}
+
+tasks {
+    bootJar {
+        enabled = true
+        archiveFileName.set("boot.jar")
+    }
 }

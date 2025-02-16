@@ -5,3 +5,7 @@ rootProject.name = "leanmysuru"
 
 include("domain")
 include("api-service")
+
+include("core:security-core")
+findProject(":core:security-core")?.name = "security-core"
+
