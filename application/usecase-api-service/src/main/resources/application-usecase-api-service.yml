@@ -1,0 +1,6 @@
+# application-security-core config를 공통으로 사용한다.
+# 만약, 모듈별로 config 설정을 수정하고싶다면 config import에서 제외하고 재정의한다.
+
+spring:
+  config:
+    import: "classpath:application-security-adapter-in.yml"

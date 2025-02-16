@@ -1,4 +1,4 @@
 spring:
   profiles:
     include:
-      - security-core
+      - usecase-api-service

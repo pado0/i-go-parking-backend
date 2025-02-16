@@ -6,7 +6,6 @@ import org.springframework.boot.builder.SpringApplicationBuilder
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
-@EnableSecurity
 @SpringBootApplication
 @ConfigurationPropertiesScan
 class ApiApplication : SpringBootServletInitializer() {

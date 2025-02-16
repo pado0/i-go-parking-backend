@@ -1,25 +1,9 @@
-plugins {
-    kotlin("jvm")
-}
 
-group = "com.leanmysuru"
-version = "0.0.1-SNAPSHOT"
-
-repositories {
-    mavenCentral()
-}
 
 dependencies {
-    implementation(project(":core:security-core"))
-    testImplementation(kotlin("test"))
+    implementation(project(":application:usecase-api-service"))
 }
 
-tasks.test {
-    useJUnitPlatform()
-}
-kotlin {
-    jvmToolchain(21)
-}
 
 tasks {
     bootJar {

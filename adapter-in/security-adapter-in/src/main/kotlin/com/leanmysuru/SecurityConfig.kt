@@ -10,7 +10,6 @@ class SecurityConfig {
 
     @Bean
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
-        // csrf 왜하는지 체크하기
         http.csrf { configurer -> configurer.disable() }
             .formLogin { form -> form.disable() }
             .oauth2Login { oauth2 -> oauth2.userInfoEndpoint {  }}

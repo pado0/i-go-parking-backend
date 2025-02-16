@@ -6,6 +6,8 @@ rootProject.name = "leanmysuru"
 include("domain")
 include("api-service")
 
-include("core:security-core")
-findProject(":core:security-core")?.name = "security-core"
+include("adapter-in:security-adapter-in")
+findProject(":adapter-in:security-adapter-in")?.name = "security-adapter-in"
 
+include("application:usecase-api-service")
+findProject(":application:usecase-api-service")?.name = "usecase-api-service"
