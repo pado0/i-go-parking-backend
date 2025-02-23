@@ -28,7 +28,6 @@ java {
 
 
 allprojects {
-
   // 디폴트로 bootJar false 해두고, true가 필요한 곳에만 true 설정하기
   tasks.withType<BootJar> {
     enabled = false
@@ -39,7 +38,6 @@ allprojects {
   }
 }
 
-// todo: plugins과, subproject 내 plugin 중복으로 들어가야하는 이유
 subprojects {
   apply {
     plugin("io.spring.dependency-management")
