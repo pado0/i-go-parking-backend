@@ -1,3 +1,4 @@
 dependencies {
-    implementation(project(":adapter-in:security-adapter-in"))
+    implementation(project(":port-out:persistence-port-out"))
+    implementation(project(":domain"))
 }
