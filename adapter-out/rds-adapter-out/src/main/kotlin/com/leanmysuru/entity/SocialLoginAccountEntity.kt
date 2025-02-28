@@ -3,14 +3,16 @@ package com.leanmysuru.entity
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
+import jakarta.persistence.Table
 
 @Entity
-data class AuthAccountEntity(
+@Table(name = "social_login_account")
+data class SocialLoginAccountEntity(
     @Column(nullable = false, unique = true)
     val email: String,
     val name: String,
     val profileImageUrl: String,
 ) {
     @Id
-    val authAccountId: Long = 0L
+    val socialLoginAccountId: Long = 0L
 }

@@ -1,5 +1,5 @@
 package com.leanmysuru.domain
 
-data class AuthAccount(
+data class SocialLoginAccount(
     val email: String,
 )

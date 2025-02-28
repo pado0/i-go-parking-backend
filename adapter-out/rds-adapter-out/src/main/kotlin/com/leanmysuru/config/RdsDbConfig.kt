@@ -1,6 +1,6 @@
 package com.leanmysuru.config
 
-import com.zaxxer.hikari.HikariDataSource
+import org.springframework.boot.autoconfigure.flyway.FlywayDataSource
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateSettings
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties
@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement
 import org.springframework.transaction.support.TransactionSynchronizationManager
 import javax.sql.DataSource
 
+@FlywayDataSource
 @EnableConfigurationProperties
 @Configuration
 // @Transactional을 찾아 트랜잭션 범위를 활성하화는 역할
@@ -32,7 +33,7 @@ import javax.sql.DataSource
 class RdsDbConfig {
 
     @Bean(name = ["writerDataSource"])
-    @Primary
+    @Primary // for flyway https://docs.spring.io/spring-boot/3.3/api/java/org/springframework/boot/autoconfigure/flyway/FlywayDataSource.html
     @ConfigurationProperties(prefix = "spring.datasource.writer")
     // custom configuration specifies in code that Hikari should be used, app.datasource.type will have no effect in yaml
     fun writerDataSource():DataSource {

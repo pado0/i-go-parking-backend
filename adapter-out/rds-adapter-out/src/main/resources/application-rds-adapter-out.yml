@@ -1,6 +1,12 @@
 # https://velog.io/@win-luck/Springboot-Multi-DataSourcereaderDB-writerDB-%EC%84%A4%EC%A0%95%ED%95%98%EA%B3%A0-%EB%9D%BC%EC%9A%B0%ED%8C%85%ED%95%98%EA%B8%B0
 
 spring:
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations:
+      - classpath:db/migration
+      - classpath:db/data
   datasource:
     writer:
       driver-class-name: org.postgresql.Driver
