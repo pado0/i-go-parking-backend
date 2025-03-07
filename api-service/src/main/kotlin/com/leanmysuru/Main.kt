@@ -1,6 +1,5 @@
-package com.leanmysuru.com.leanmysuru
+package com.leanmysuru
 
-import com.leanmysuru.EnableSecurity
 import com.leanmysuru.annotation.EnableRdsAdapter
 import com.leanmysuru.annotation.EnableWebAdapter
 import org.springframework.boot.SpringApplication
