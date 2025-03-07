@@ -1,4 +1,5 @@
 # leanmysuru
+
 ### Dev Stack
 
 ### Architecture
@@ -10,13 +11,11 @@
 ### Todo List
 
 common
-- [ ] mvc run check
+- [v] mvc run check
 - [ ] lint setting
 - [ ] logger setting / masking
 - [ ] exception setting
-- [ ] security setting
-- [ ] docker setting
-- [ ] jpa / db setting
+- [v] security setting
+- [v] docker setting
+- [v] jpa / db setting
 - [ ] ci/cd process setting
-
-architecture
