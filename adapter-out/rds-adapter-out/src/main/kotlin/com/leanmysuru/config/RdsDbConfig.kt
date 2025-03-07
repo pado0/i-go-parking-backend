@@ -56,8 +56,8 @@ class RdsDbConfig {
         val reader = readerDataSource()
 
         val dataSourceMap = mutableMapOf<Any, Any>()
-        dataSourceMap["writer"] = writer
-        dataSourceMap["reader"] = reader
+        dataSourceMap[WRITER_DATABASE] = writer
+        dataSourceMap[READER_DATABASE] = reader
 
         val routingDataSource = RoutingDataSource()
         routingDataSource.setDefaultTargetDataSource(writer)
@@ -94,8 +94,11 @@ class RdsDbConfig {
 class RoutingDataSource: AbstractRoutingDataSource() {
     override fun determineCurrentLookupKey(): Any {
         if(TransactionSynchronizationManager.isCurrentTransactionReadOnly()){
-            return "reader"
+            return READER_DATABASE
         }
-        return "writer"
+        return WRITER_DATABASE
     }
 }
+
+const val READER_DATABASE = "reader"
+const val WRITER_DATABASE = "writer"
