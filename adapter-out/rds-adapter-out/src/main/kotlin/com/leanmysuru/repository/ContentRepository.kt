@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface ContentRepository: JpaRepository<ContentEntity, Long> {
-    fun findContentEntityByContentId(contentId: Long) : ContentEntity
+    fun findContentEntityByContentId(contentId: Long) : ContentEntity?
 }
