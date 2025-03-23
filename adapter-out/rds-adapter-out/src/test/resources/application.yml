@@ -9,14 +9,14 @@ spring:
     writer:
       driver-class-name: org.postgresql.Driver
       read-only: false
-      jdbc-url: jdbc:postgresql://localhost:5432/leanmysuru
+      jdbc-url: jdbc:postgresql://localhost:5432/boilerplate
       username: postgres
       password: postgres
       pool-name: HikariCP-Writer
     reader:
       driver-class-name: org.postgresql.Driver
       read-only: true
-      jdbc-url: jdbc:postgresql://localhost:5432/leanmysuru
+      jdbc-url: jdbc:postgresql://localhost:5432/boilerplate
       username: postgres
       password: postgres
       pool-name: HikariCP-Reader

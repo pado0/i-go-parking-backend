@@ -1,4 +1,4 @@
 dependencies {
-    implementation(project(":application:usecase-api-service"))
+    implementation(project(":application:usecase-api"))
     implementation(project(":domain"))
 }
