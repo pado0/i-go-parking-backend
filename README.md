@@ -9,13 +9,13 @@
 ### Architecture
 Used Hexagonal Architecture to loosen external dependencies and keep the domain clean.
 
-<img src="hexagonal_architecture.png" width="500">
+<img src="hexagonal_architecture.png" width="700" alt="hexagonal architecture">
 
 
 ### Module Dependency
 Used Multi Module to avoid incorrect dependencies. 
 
-<img src="module_dependency.png" width="300">
+<img src="module_dependency.png" width="500" alt="module dependency">
 
 
 ### Todo List
