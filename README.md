@@ -7,10 +7,16 @@
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=white)
 
 ### Architecture
+Used Hexagonal Architecture to loosen external dependencies and keep the domain clean.
+
+<img src="hexagonal_architecture.png" width="500">
+
 
 ### Module Dependency
+Used Multi Module to avoid incorrect dependencies. 
 
-### Function
+<img src="module_dependency.png" width="300">
+
 
 ### Todo List
 - [x] gradle setting
