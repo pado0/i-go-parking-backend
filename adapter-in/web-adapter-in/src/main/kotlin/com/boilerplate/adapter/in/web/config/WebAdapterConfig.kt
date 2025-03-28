@@ -7,5 +7,4 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 @ComponentScan(basePackages = ["com.boilerplate.adapter.in.web"])
 @EnableUsecaseApi
-class WebAdapterConfig {
-}
+class WebAdapterConfig

@@ -17,10 +17,11 @@ class ContentController(
         @PathVariable contentId: Long,
         @RequestParam count: Long,
     ): ResponseEntity<Content?> {
-        val changed = contentUsecasePort.decreaseLikedCount(
-            contentId = contentId,
-            count = count,
-        )
+        val changed =
+            contentUsecasePort.decreaseLikedCount(
+                contentId = contentId,
+                count = count,
+            )
         return ResponseEntity.ok(changed)
     }
 }

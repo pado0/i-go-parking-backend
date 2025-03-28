@@ -1,7 +1,7 @@
 package com.boilerplate.adapter.out.rds.mapper
 
-import com.boilerplate.domain.Content
 import com.boilerplate.adapter.out.rds.entity.ContentEntity
+import com.boilerplate.domain.Content
 
 object ContentMapper {
     fun toDomain(entity: ContentEntity?): Content? {
@@ -9,7 +9,7 @@ object ContentMapper {
         return with(entity) {
             Content(
                 contentId = contentId,
-                likedCount = likedCount
+                likedCount = likedCount,
             )
         }
     }

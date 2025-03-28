@@ -1,4 +1,4 @@
-# Backend Boilerplate 
+# Backend Boilerplate
 
 ### Tech Stack
 ![Spring](https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=white)
@@ -13,10 +13,24 @@ Used Hexagonal Architecture to loosen external dependencies and keep the domain 
 
 
 ### Module Dependency
-Used Multi Module to avoid incorrect dependencies. 
+Used Multi Module to avoid incorrect dependencies.
 
 <img src="module_dependency.png" width="500" alt="module dependency">
 
+### DB
+reader writer replication
+
+### Api response format
+
+### logger policy
+
+### exception convention
+
+### Code format
+<img src="img.png" width="200" alt="module dependency">
+
+install ktlint plugin in IntellJ and set Distract free & on save option
+![img_1.png](img_1.png)
 
 ### Todo List
 - [x] gradle setting
@@ -31,3 +45,4 @@ Used Multi Module to avoid incorrect dependencies.
 - [ ] log masking
 - [ ] exception setting
 - [ ] ci/cd process setting
+- [ ] package versioning

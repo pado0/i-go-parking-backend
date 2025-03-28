@@ -1,0 +1,39 @@
+# represent root editorconfig
+root = true
+
+[*]
+charset = utf-8
+
+# end file with new line(\n)
+end_of_line = lf
+insert_final_newline = true
+
+max_line_length = 350
+
+# remove any whitespace characters preceding newline characters
+trim_trailing_whitespace = true
+
+# set to tab or space to use hard tabs or soft tabs respectively.
+indent_style = space
+#  a whole number defining the number of columns used for each indentation level and the width of soft tabs (when supported). When set to tab, the value of tab_width (if specified) will be used.
+indent_size = 4
+# a whole number defining the number of columns used to represent a tab character.
+tab_width = 2
+
+[*.{kt,kts}]
+# can omit the curly braces in if-else
+ktlint_standard_if-else-bracing = disabled
+
+# if-else in one line
+ktlint_standard_multiline-if-else = disabled
+ktlint_standard_if-else-wrapping = disabled
+
+# Don't allow any wildcard imports
+ij_kotlin_packages_to_use_import_on_demand = unset
+
+# Prevent wildcard imports
+ij_kotlin_name_count_to_use_star_import = 99
+ij_kotlin_name_count_to_use_star_import_for_members = 99
+
+# remove package name regulation
+ktlint_standard_package-name = disabled

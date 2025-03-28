@@ -27,25 +27,23 @@ import javax.sql.DataSource
 @EnableJpaRepositories(
     basePackages = ["com.boilerplate.adapter.out.rds.repository"],
     entityManagerFactoryRef = "rdsEntityManager",
-    transactionManagerRef = "rdsTransactionManager")
+    transactionManagerRef = "rdsTransactionManager",
+)
 class RdsDbConfig {
-
     @Bean(name = ["writerDataSource"])
     @Primary
     @ConfigurationProperties(prefix = "spring.datasource.writer")
-    fun writerDataSource():DataSource {
-        return DataSourceBuilder
+    fun writerDataSource(): DataSource =
+        DataSourceBuilder
             .create()
             .build()
-    }
 
     @Bean(name = ["readerDataSource"])
     @ConfigurationProperties(prefix = "spring.datasource.reader")
-    fun readerDataSource():DataSource{
-        return DataSourceBuilder
+    fun readerDataSource(): DataSource =
+        DataSourceBuilder
             .create()
             .build()
-    }
 
     @Bean
     fun routingDataSource(): DataSource {
@@ -65,20 +63,19 @@ class RdsDbConfig {
     }
 
     @Bean
-    fun rdsTransactionManager(rdsEntityManager: LocalContainerEntityManagerFactoryBean): JpaTransactionManager {
-        return JpaTransactionManager(rdsEntityManager.`object`!!)
-    }
+    fun rdsTransactionManager(rdsEntityManager: LocalContainerEntityManagerFactoryBean): JpaTransactionManager = JpaTransactionManager(rdsEntityManager.`object`!!)
 
     @Bean
     fun rdsEntityManager(
         jpaProperties: JpaProperties,
         hibernateProperties: HibernateProperties,
     ): LocalContainerEntityManagerFactoryBean {
-        val entityManagerFactoryBuilder = EntityManagerFactoryBuilder(
-            HibernateJpaVendorAdapter(),
-            hibernateProperties.determineHibernateProperties(jpaProperties.properties, HibernateSettings()),
-            null
-        )
+        val entityManagerFactoryBuilder =
+            EntityManagerFactoryBuilder(
+                HibernateJpaVendorAdapter(),
+                hibernateProperties.determineHibernateProperties(jpaProperties.properties, HibernateSettings()),
+                null,
+            )
 
         return entityManagerFactoryBuilder
             .dataSource(routingDataSource())
@@ -87,9 +84,9 @@ class RdsDbConfig {
     }
 }
 
-class RoutingDataSource: AbstractRoutingDataSource() {
+class RoutingDataSource : AbstractRoutingDataSource() {
     override fun determineCurrentLookupKey(): Any {
-        if(TransactionSynchronizationManager.isCurrentTransactionReadOnly()){
+        if (TransactionSynchronizationManager.isCurrentTransactionReadOnly()) {
             return READER_DATABASE
         }
         return WRITER_DATABASE

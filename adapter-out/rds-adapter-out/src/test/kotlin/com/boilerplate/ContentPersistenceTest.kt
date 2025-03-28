@@ -10,4 +10,4 @@ import org.springframework.test.context.ContextConfiguration
 class ContentPersistenceTest(
     private val contentRepository: ContentRepository,
 ) : StringSpec({
-})
+    })
