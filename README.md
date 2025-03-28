@@ -27,10 +27,10 @@ reader writer replication
 ### exception convention
 
 ### Code format
-<img src="img.png" width="200" alt="module dependency">
+<img src="ktlint_plugin.png" width="200" alt="module dependency">
 
 install ktlint plugin in IntellJ and set Distract free & on save option
-![img_1.png](img_1.png)
+<img src="ktlint_setting.png" width="500" alt="module dependency">
 
 ### Todo List
 - [x] gradle setting
@@ -39,7 +39,7 @@ install ktlint plugin in IntellJ and set Distract free & on save option
 - [x] docker setting for init
 - [x] jpa / db setting
 - [x] mvc run check
-- [ ] lint setting
+- [x] lint setting
 - [ ] define controller response
 - [ ] logger setting
 - [ ] log masking
