@@ -63,7 +63,7 @@ install ktlint plugin in IntellJ and set Distract free & on save option
 - [x] jpa / db setting
 - [x] mvc run check
 - [x] lint setting
-- [ ] define controller response
+- [x] define controller response
 - [ ] logger setting
 - [ ] log masking
 - [ ] exception setting
