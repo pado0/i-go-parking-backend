@@ -2,9 +2,12 @@
 
 ### Tech Stack
 ![Spring](https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=white)
+![REST API](https://img.shields.io/badge/REST%20API-005571?style=flat-square&logo=rest&logoColor=white)
 ![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=flat-square&logo=Kotlin&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=PostgreSQL&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=white)
+![Ktlint](https://img.shields.io/badge/Ktlint-orange?style=flat-square&logoColor=white)
+
 
 ### Architecture
 Used Hexagonal Architecture to loosen external dependencies and keep the domain clean.
@@ -20,18 +23,19 @@ Used Multi Module to avoid incorrect dependencies.
 ### DB
 reader writer replication
 
-### Api response format
-Based on https://jsonapi.org/
+### API response format
+The API response is defined based on JSON API(https://jsonapi.org/)
 ~~~
-// single response
+# single response sample
 {
     "data": {
         "contentId": 1,
         "likedCount": 971
     }
 }
-
-// paged reponse
+~~~
+~~~
+# paged reponse sample
 {
     "data": {
         "items": [],
