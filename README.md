@@ -21,6 +21,25 @@ Used Multi Module to avoid incorrect dependencies.
 reader writer replication
 
 ### Api response format
+Based on https://jsonapi.org/
+~~~
+// single response
+{
+    "data": {
+        "contentId": 1,
+        "likedCount": 971
+    }
+}
+
+// paged reponse
+{
+    "data": {
+        "items": [],
+        "prevLink": null,
+        "nextLint": null,
+    }
+}
+~~~
 
 ### logger policy
 

@@ -4,13 +4,18 @@ data class Content(
     val contentId: Long,
     var likedCount: Long,
 ) {
-    fun decreaseLikedCount(count: Long) {
-        if (count <= 0) {
+    fun increaseLikedCount() {
+        this.likedCount += LIKED_COUNT
+    }
+
+    fun decreaseLikedCount() {
+        if (this.likedCount - LIKED_COUNT < 0) {
             throw Exception()
         }
-        if (this.likedCount - count < 0) {
-            throw Exception()
-        }
-        this.likedCount -= count
+        this.likedCount -= LIKED_COUNT
+    }
+
+    companion object {
+        const val LIKED_COUNT = 1L
     }
 }

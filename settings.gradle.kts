@@ -6,6 +6,9 @@ rootProject.name = "backend-boilerplate"
 include("domain")
 include("web-api")
 
+include("adapter-in:common-adapter-in")
+findProject(":adapter-in:common-adapter-in")?.name = "common-adapter-in"
+
 include("adapter-in:web-adapter-in")
 findProject(":adapter-in:web-adapter-in")?.name = "web-adapter-in"
 
