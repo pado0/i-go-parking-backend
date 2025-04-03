@@ -1,4 +1,5 @@
-# Backend Igoparking
+# i-go-parking
+Provide information about public parking lots in British Columbia
 
 ### Tech Stack
 ![Spring](https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=white)
