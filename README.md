@@ -20,7 +20,7 @@ Used Multi Module to avoid incorrect dependencies.
 
 <img src="module_dependency.png" width="500" alt="module dependency">
 
-### DB
+### DB Replication
 reader writer replication
 
 ### API response format
@@ -46,6 +46,16 @@ The API response is defined based on JSON API(https://jsonapi.org/)
 ~~~
 
 ### logger policy
+Used KotlinLogging to express logs concisely in a Spring-Kotlin stack.
+Declared logger  outside the class to prevent unnecessary object creation when instantiating the class.
+Optimized string operations using the lambda block format in logger.info {}.
+~~~
+private val logger = KotlinLogging.logger {}
+
+class A {
+    logger.info { "[Sample Log]" }
+}
+~~~
 
 ### exception convention
 

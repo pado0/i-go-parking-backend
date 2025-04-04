@@ -11,7 +11,7 @@ class ContentTest :
                     likedCount = 100,
                 )
 
-            content.decreaseLikedCount(10)
+            content.decreaseLikedCount()
             content.likedCount shouldBe 90
         }
     })

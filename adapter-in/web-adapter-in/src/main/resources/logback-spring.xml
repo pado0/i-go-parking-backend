@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds">
+    <springProperty scope="context" name="LOG_LEVEL" source="logging.level.root"/>
+
+    <!-- custom coloring conversion -->
+    <conversionRule conversionWord="highlightRule" converterClass="com.boilerplate.adapter.in.common.converter.LogbackHighlightConverter"/>
+
+    <property name="LOG_PATTERN" value="%highlightRule(%-5level) %d{yy-MM-dd HH:mm:ss} [%blue(%thread)] [%cyan(%logger{0}:%line)] - %msg%n"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <springProfile name="local">
+        <root level="debug">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="dev">
+        <root level="info">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="prod">
+        <root level="debug">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+    <logger name="org.apache.kafka" level="info"/>
+    <logger name="org.springframework.kafka" level="info"/>
+    <root level="${LOG_LEVEL}">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
