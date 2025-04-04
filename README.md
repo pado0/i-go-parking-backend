@@ -23,7 +23,7 @@ Used Multi Module to avoid incorrect dependencies.
 ### DB Replication
 reader writer replication
 
-### API response format
+### API Response
 The API response is defined based on JSON API(https://jsonapi.org/)
 ~~~
 # single response sample
@@ -45,7 +45,7 @@ The API response is defined based on JSON API(https://jsonapi.org/)
 }
 ~~~
 
-### logger policy
+### Logging
 Used KotlinLogging to express logs concisely in a Spring-Kotlin stack.
 Declared logger  outside the class to prevent unnecessary object creation when instantiating the class.
 Optimized string operations using the lambda block format in logger.info {}.
@@ -74,7 +74,7 @@ install ktlint plugin in IntellJ and set Distract free & on save option
 - [x] mvc run check
 - [x] lint setting
 - [x] define controller response
-- [ ] logger setting
+- [x] logger setting
 - [ ] log masking
 - [ ] exception setting
 - [ ] ci/cd process setting
