@@ -1,6 +1,7 @@
 package com.igoparking.api
 
 import com.igoparking.adapter.`in`.web.annotation.EnableWebAdapter
+import com.igoparking.adapter.out.mcp.annotation.EnableMcpAdapter
 import com.igoparking.adapter.out.rds.annotation.EnableRdsAdapter
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -12,6 +13,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @ConfigurationPropertiesScan
 @EnableRdsAdapter
 @EnableWebAdapter
+@EnableMcpAdapter
 class ApiApplication : SpringBootServletInitializer() {
     override fun configure(builder: SpringApplicationBuilder): SpringApplicationBuilder = builder.sources(ApiApplication::class.java)
 }

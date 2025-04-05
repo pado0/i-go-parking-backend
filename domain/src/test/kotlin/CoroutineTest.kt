@@ -1,4 +1,3 @@
-import com.igoparking.domain.Content
 import io.kotest.common.runBlocking
 import io.kotest.core.spec.style.StringSpec
 import kotlinx.coroutines.launch
@@ -14,11 +13,6 @@ class CoroutineTest :
          */
         "coroutine-basics docs practice" {
             val threadCount = 100
-            val content =
-                Content(
-                    contentId = 1,
-                    likedCount = 100,
-                )
 
             runBlocking {
                 // launch
