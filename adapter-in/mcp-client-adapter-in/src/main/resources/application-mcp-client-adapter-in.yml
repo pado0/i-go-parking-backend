@@ -1,0 +1,17 @@
+spring:
+    ai:
+        openai:
+            api-key: {test}
+        mcp.client:
+            type: ASYNC
+            sse.connections:
+                mcp-server:
+                    url: http://localhost:8060
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: beans
+
+logging.level.org.springframework.ai: DEBUG

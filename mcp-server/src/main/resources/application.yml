@@ -1,0 +1,11 @@
+# if you want to use independent config,
+# exclude config profile and redefine properties here
+spring:
+    profiles:
+        include:
+            - usecase-api
+            - rds-adapter-out
+            - mcp-adapter-out
+
+logging.level.org.springframework.ai: DEBUG
+server.port: 8060

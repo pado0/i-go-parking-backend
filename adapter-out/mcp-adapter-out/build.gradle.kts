@@ -4,8 +4,11 @@ repositories {
 
 dependencies {
     implementation(project(":port-in:usecase-api-port-in"))
+    implementation(project(":port-out:mcp-port-out"))
+    implementation(project(":domain"))
 
-    implementation("org.springframework.ai:spring-ai-mcp-server-spring-boot-starter:1.0.0-M6") // MCP 서버 스타터
+//    implementation("org.springframework.ai:spring-ai-mcp-server-spring-boot-starter:1.0.0-M6") // MCP 서버 스타터
+//    implementation("org.springframework.ai:spring-ai-mcp-server-webflux-spring-boot-starter:1.0.0-M6") // MCP 서버 스타터
     implementation("org.springframework.ai:spring-ai-mcp-server-webmvc-spring-boot-starter:1.0.0-M6") // MCP 서버 스타터
     implementation("org.springframework.ai:spring-ai-bom:1.0.0-M6") // OpenAI 연동을 위한 스타터
 }
