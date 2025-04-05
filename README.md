@@ -1,4 +1,4 @@
-# Backend Boilerplate
+# Backend Igoparking
 
 ### Tech Stack
 ![Spring](https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=white)
@@ -75,7 +75,6 @@ install ktlint plugin in IntellJ and set Distract free & on save option
 - [x] lint setting
 - [x] define controller response
 - [x] logger setting
-- [ ] log masking
 - [ ] exception setting
 - [ ] ci/cd process setting
 - [ ] package versioning

@@ -1,4 +1,4 @@
-import com.boilerplate.domain.Content
+import com.igoparking.domain.Content
 import io.kotest.common.runBlocking
 import io.kotest.core.spec.style.StringSpec
 import kotlinx.coroutines.launch

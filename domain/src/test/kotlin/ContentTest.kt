@@ -1,4 +1,4 @@
-import com.boilerplate.domain.Content
+import com.igoparking.domain.Content
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
 

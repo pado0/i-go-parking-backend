@@ -3,7 +3,7 @@
     <springProperty scope="context" name="LOG_LEVEL" source="logging.level.root"/>
 
     <!-- custom coloring conversion -->
-    <conversionRule conversionWord="highlightRule" converterClass="com.boilerplate.adapter.in.common.converter.LogbackHighlightConverter"/>
+    <conversionRule conversionWord="highlightRule" converterClass="com.igoparking.adapter.in.common.converter.LogbackHighlightConverter"/>
 
     <property name="LOG_PATTERN" value="%highlightRule(%-5level) %d{yy-MM-dd HH:mm:ss} [%blue(%thread)] [%cyan(%logger{0}:%line)] - %msg%n"/>
 
