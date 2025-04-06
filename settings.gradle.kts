@@ -22,6 +22,9 @@ findProject(":adapter-out:rds-adapter-out")?.name = "rds-adapter-out"
 include("adapter-out:mcp-adapter-out")
 findProject(":adapter-out:mcp-adapter-out")?.name = "mcp-adapter-out"
 
+include("adapter-out:feign-adapter-out")
+findProject(":adapter-out:feign-adapter-out")?.name = "feign-adapter-out"
+
 include("port-in:usecase-api-port-in")
 findProject(":port-in:usecase-api-port-in")?.name = "usecase-api-port-in"
 
