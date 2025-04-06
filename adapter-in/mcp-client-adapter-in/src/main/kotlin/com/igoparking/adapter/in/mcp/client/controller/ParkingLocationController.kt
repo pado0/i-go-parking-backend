@@ -16,7 +16,7 @@ class ParkingLocationController(
 ) {
     private val chatClient: ChatClient =
         chatClientBuilder
-            .defaultTools(tools)
+            .defaultTools(tools.toolCallbacks[0])
             .build()
 
     @GetMapping // ("/location")
