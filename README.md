@@ -8,73 +8,13 @@
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=white)
 ![Ktlint](https://img.shields.io/badge/Ktlint-orange?style=flat-square&logoColor=white)
 
+### Functional Requirements
+- You can search nearest public parking lot.
+- You can search specific public parking lot with location.
+- You can see how much fee.
+- You can estimate if there is available parking lot.
 
-### Architecture
-Used Hexagonal Architecture to loosen external dependencies and keep the domain clean.
+### Non Functional Requirements
+- Crawl a public parking meter data per week.
 
-<img src="hexagonal_architecture.png" width="700" alt="hexagonal architecture">
-
-
-### Module Dependency
-Used Multi Module to avoid incorrect dependencies.
-
-<img src="module_dependency.png" width="500" alt="module dependency">
-
-### DB Replication
-reader writer replication
-
-### API Response
-The API response is defined based on JSON API(https://jsonapi.org/)
-~~~
-# single response sample
-{
-    "data": {
-        "contentId": 1,
-        "likedCount": 971
-    }
-}
-~~~
-~~~
-# paged reponse sample
-{
-    "data": {
-        "items": [],
-        "prevLink": null,
-        "nextLint": null,
-    }
-}
-~~~
-
-### Logging
-Used KotlinLogging to express logs concisely in a Spring-Kotlin stack.
-Declared logger  outside the class to prevent unnecessary object creation when instantiating the class.
-Optimized string operations using the lambda block format in logger.info {}.
-~~~
-private val logger = KotlinLogging.logger {}
-
-class A {
-    logger.info { "[Sample Log]" }
-}
-~~~
-
-### exception convention
-
-### Code format
-<img src="ktlint_plugin.png" width="200" alt="module dependency">
-
-install ktlint plugin in IntellJ and set Distract free & on save option
-<img src="ktlint_setting.png" width="500" alt="module dependency">
-
-### Todo List
-- [x] gradle setting
-- [x] architecture design
-- [x] package naming
-- [x] docker setting for init
-- [x] jpa / db setting
-- [x] mvc run check
-- [x] lint setting
-- [x] define controller response
-- [x] logger setting
-- [ ] exception setting
-- [ ] ci/cd process setting
-- [ ] package versioning
+### High Level Design
