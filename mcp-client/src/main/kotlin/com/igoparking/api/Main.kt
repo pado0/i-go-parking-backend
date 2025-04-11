@@ -9,7 +9,6 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 @SpringBootApplication
 @ConfigurationPropertiesScan
-// @EnableRdsAdapter
 @EnableMcpClientAdapter
 class ApiApplication : SpringBootServletInitializer() {
     override fun configure(builder: SpringApplicationBuilder): SpringApplicationBuilder = builder.sources(ApiApplication::class.java)
