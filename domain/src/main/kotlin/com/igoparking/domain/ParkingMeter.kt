@@ -6,6 +6,7 @@ import java.time.LocalDateTime
 import java.time.LocalTime
 
 data class ParkingMeter(
+    val meterId: String? = null,
     val meterType: String? = null,
     val rateSchedule: List<RateSchedule>? = null,
     val maxTimePeriodPerDays: List<MaxTimePeriodPerDay>? = null,
@@ -16,7 +17,6 @@ data class ParkingMeter(
     val payByPhoneCode: String? = null,
     val location: Geometry? = null,
     val areaName: String? = null,
-    val meterId: String? = null,
     val geoPointString: String? = null,
 ) {
     fun isValidMaxTimePeriod(
@@ -24,11 +24,11 @@ data class ParkingMeter(
         endTime: LocalDateTime,
     ): Boolean {
         if (startTime.dayOfWeek != endTime.dayOfWeek) {
-            throw Exception()
+            throw IllegalArgumentException("Start time and end time must be on the same day.")
         }
 
         if (endTime.isBefore(startTime)) {
-            throw Exception()
+            throw IllegalArgumentException("End time must be after start time.")
         }
 
         val validMaxTimeDuration =
@@ -36,7 +36,7 @@ data class ParkingMeter(
                 ?.firstOrNull { it.dayOfWeek == startTime.dayOfWeek }
                 ?.maxTimePeriodPerHours
                 ?.firstOrNull { it.startHour.hour == startTime.hour }
-                ?.duration ?: throw Exception()
+                ?.duration ?: throw IllegalArgumentException("No maximum parking duration found for the specified day and hour.")
 
         val requestedDuration = Duration.between(startTime, endTime)
 
@@ -47,11 +47,11 @@ data class ParkingMeter(
         startTime: LocalDateTime,
         endTime: LocalDateTime,
     ): Double {
-        // 시작시간과 끝나는 시간의 날짜가 다른 경우 예외를 반환한다.
-        // 끝나는 시간이 Meter operator 시작시간보다 빠르면 0원을 반환한다.
-        // 시작시간이 Meter operator 끝나는 시간보다 느리면 0원을 반환한다.
+        // Throws an exception if the start date and end date are different
+        // Returns 0 if the end time is earlier than the meter operation start time
+        // Returns 0 if the start time is later than the meter operation end time
 
-        // 시작시간과 끝나는 시간의 차이가 MaxTimePeriod를 넘어가면 예외를 반환한다.
+        // Throws an exception if the time difference between start and end times exceeds MaxTimePeriod
         return 0.0
     }
 }
