@@ -24,15 +24,15 @@ class ParkingMeterCalculateRateTest {
                     listOf(
                         RatePerHour(
                             startHour = LocalTime.of(12, 0),
-                            rate = Dollar(value = 2.0), // $2.0 per hour
+                            rate = Dollar(value = 2.0),
                         ),
                         RatePerHour(
                             startHour = LocalTime.of(13, 0),
-                            rate = Dollar(value = 3.0), // $3.0 per hour
+                            rate = Dollar(value = 3.0),
                         ),
                         RatePerHour(
                             startHour = LocalTime.of(14, 0),
-                            rate = Dollar(value = 4.0), // $4.0 per hour
+                            rate = Dollar(value = 4.0),
                         ),
                     ),
             )
@@ -44,7 +44,7 @@ class ParkingMeterCalculateRateTest {
                     listOf(
                         MaxTimePeriodPerHour(
                             startHour = LocalTime.of(12, 0),
-                            duration = Minute(180), // 3 hours max
+                            duration = Minute(180),
                         ),
                     ),
             )
@@ -125,7 +125,8 @@ class ParkingMeterCalculateRateTest {
             assertThrows<IllegalArgumentException> {
                 parkingMeter.calculateRate(
                     startTime = testDate,
-                    endTime = testDate.plusHours(4), // Exceeds 3-hour maximum
+                    // Exceeds 3-hour maximum
+                    endTime = testDate.plusHours(4),
                 )
             }
         }
@@ -137,7 +138,8 @@ class ParkingMeterCalculateRateTest {
             assertThrows<IllegalArgumentException> {
                 parkingMeter.calculateRate(
                     startTime = testDate,
-                    endTime = testDate.withHour(21), // Past 8 PM operation end time
+                    // Past 8 PM operation end time
+                    endTime = testDate.withHour(21),
                 )
             }
         }

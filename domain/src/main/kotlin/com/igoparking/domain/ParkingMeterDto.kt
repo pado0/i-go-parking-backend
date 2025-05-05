@@ -25,5 +25,13 @@ data class ParkingMeter(
 
 data class Geometry(
     val type: String? = null,
-    val coordinates: List<Double>? = null, // [longitude, latitude]
+    val coordinates: Map<Longitude, Latitude>? = null,
+)
+
+data class Longitude(
+    val value: Double? = null,
+)
+
+data class Latitude(
+    val value: Double? = null,
 )
