@@ -1,5 +1,7 @@
 package com.igoparking.domain
 
+import com.igoparking.domain.unit.Dollar
+import com.igoparking.domain.unit.Minute
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
@@ -17,8 +19,8 @@ class ParkingMeterCalculateRateTest {
     @BeforeTest
     fun setup() {
         // Given: A parking meter with specific rate schedule and operation time
-        val rateSchedule =
-            RateSchedule(
+        val rateSchedulePerDay =
+            RateSchedulePerDay(
                 dayOfWeek = DayOfWeek.SATURDAY,
                 ratePerHours =
                     listOf(
@@ -51,7 +53,7 @@ class ParkingMeterCalculateRateTest {
 
         parkingMeter =
             ParkingMeter(
-                rateSchedule = listOf(rateSchedule),
+                rateSchedulePerDays = listOf(rateSchedulePerDay),
                 maxTimePeriodPerDays = listOf(maxTimePeriodPerDay),
                 meterOperationTime =
                     TimePeriod(

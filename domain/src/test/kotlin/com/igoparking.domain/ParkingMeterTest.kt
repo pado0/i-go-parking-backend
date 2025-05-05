@@ -1,5 +1,6 @@
 package com.igoparking.domain
 
+import com.igoparking.domain.unit.Minute
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
