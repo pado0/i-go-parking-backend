@@ -31,6 +31,10 @@ data class ParkingMeter(
             throw IllegalArgumentException("End time must be after start time.")
         }
 
+        if (endTime.toLocalTime().isAfter(meterOperationTime?.endTime)) {
+            throw IllegalArgumentException("Meter Operation End time must be after end time.")
+        }
+
         val validMaxTimeDuration =
             this.maxTimePeriodPerDays
                 ?.firstOrNull { it.dayOfWeek == startTime.dayOfWeek }
@@ -47,12 +51,35 @@ data class ParkingMeter(
         startTime: LocalDateTime,
         endTime: LocalDateTime,
     ): Double {
-        // Throws an exception if the start date and end date are different
-        // Returns 0 if the end time is earlier than the meter operation start time
-        // Returns 0 if the start time is later than the meter operation end time
+        if (!isValidMaxTimePeriod(startTime, endTime)) throw IllegalArgumentException("Max time period must be valid.")
 
-        // Throws an exception if the time difference between start and end times exceeds MaxTimePeriod
-        return 0.0
+        val ratePerHours: List<RatePerHour>? =
+            this.rateSchedule
+                ?.firstOrNull { it.dayOfWeek == startTime.dayOfWeek }
+                ?.ratePerHours
+                ?.filter { it.startHour.hour in startTime.toLocalTime().hour..endTime.toLocalTime().hour }
+
+        var totalRate = 0.0
+        ratePerHours?.forEach { ratePerHour ->
+            val ratePerMinute = ratePerHour.rate.value / 60.0
+
+            if (startTime.hour == endTime.hour) {
+                val startMinute = endTime.toLocalTime().minute - startTime.toLocalTime().minute
+                return ratePerMinute * startMinute
+            }
+
+            if (startTime.hour == ratePerHour.startHour.hour) {
+                val rateMinute = 60 - startTime.toLocalTime().minute
+                totalRate += ratePerMinute * rateMinute
+            } else if (endTime.hour == ratePerHour.startHour.hour) {
+                val rateMinute = endTime.toLocalTime().minute
+                totalRate += ratePerMinute * rateMinute
+            } else {
+                totalRate += ratePerHour.rate.value
+            }
+        }
+
+        return totalRate
     }
 }
 
@@ -67,17 +94,13 @@ data class MaxTimePeriodPerHour(
 )
 
 data class RateSchedule(
-    val ratePerDays: List<RatePerDay>? = null,
-)
-
-data class RatePerDay(
     val dayOfWeek: DayOfWeek,
     val ratePerHours: List<RatePerHour>,
 )
 
 data class RatePerHour(
     val startHour: LocalTime,
-    val rate: Double,
+    val rate: Dollar,
 )
 
 data class Geometry(

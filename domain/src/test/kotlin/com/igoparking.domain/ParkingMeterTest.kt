@@ -28,7 +28,10 @@ class ParkingMeterTest {
                         ),
                     ),
             )
-        parkingMeter = ParkingMeter(maxTimePeriodPerDays = listOf(maxTimePeriodPerDay))
+        parkingMeter =
+            ParkingMeter(
+                maxTimePeriodPerDays = listOf(maxTimePeriodPerDay),
+            )
     }
 
     @Nested
