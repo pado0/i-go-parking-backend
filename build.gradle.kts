@@ -54,6 +54,12 @@ subprojects {
         testImplementation("io.kotest:kotest-runner-junit5:5.8.0")
         testImplementation("io.kotest.extensions:kotest-extensions-spring:1.1.2")
     }
+
+    dependencyManagement {
+        imports {
+            mavenBom("org.springframework.cloud:spring-cloud-dependencies:2023.0.3")
+        }
+    }
 }
 
 kotlin {

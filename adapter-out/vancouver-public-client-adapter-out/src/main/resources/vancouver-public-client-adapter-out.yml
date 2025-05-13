@@ -1,0 +1,9 @@
+# exclude config profile and redefine properties here
+spring:
+    profiles:
+        include:
+            - feign-adapter-out
+
+client:
+    vancouver-public:
+        host: https://opendata.vancouver.ca
