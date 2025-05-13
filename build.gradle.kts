@@ -46,8 +46,10 @@ subprojects {
     }
     dependencies {
         implementation("org.springframework.boot:spring-boot-starter-web")
+        implementation("org.springframework.boot:spring-boot-starter-aop")
         implementation("org.jetbrains.kotlin:kotlin-reflect")
         implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
+        implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.2")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
         testImplementation("io.kotest:kotest-assertions-core:5.8.0")

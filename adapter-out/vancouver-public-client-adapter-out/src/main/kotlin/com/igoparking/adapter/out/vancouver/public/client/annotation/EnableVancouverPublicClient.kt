@@ -1,7 +1,7 @@
-package com.igoparking.adapter.out.mcp.vancouver.public.client.annotation
+package com.igoparking.adapter.out.vancouver.public.client.annotation
 
 import com.igoparking.adapter.out.feign.config.FeignConfig
-import com.igoparking.adapter.out.mcp.vancouver.public.client.config.VancouverPublicClientConfig
+import com.igoparking.adapter.out.vancouver.public.client.config.VancouverPublicClientConfig
 import org.springframework.context.annotation.Import
 
 @Target(AnnotationTarget.CLASS)
