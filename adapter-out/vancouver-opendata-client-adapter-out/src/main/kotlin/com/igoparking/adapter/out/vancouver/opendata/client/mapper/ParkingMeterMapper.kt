@@ -49,7 +49,7 @@ object ParkingMeterMapper {
                 MaxTimePeriodPerDay(
                     dayOfWeek = day,
                     maxTimePeriodPerHours =
-                        buildHours(
+                        buildMaxTimePeriodPerHour(
                             am = meter.t_mf_9a_6p,
                             pm = meter.t_mf_6p_10,
                             meterOperationTime = meterOperationTime,
@@ -61,7 +61,7 @@ object ParkingMeterMapper {
             MaxTimePeriodPerDay(
                 dayOfWeek = DayOfWeek.SATURDAY,
                 maxTimePeriodPerHours =
-                    buildHours(
+                    buildMaxTimePeriodPerHour(
                         am = meter.t_sa_9a_6p,
                         pm = meter.t_sa_6p_10,
                         meterOperationTime = meterOperationTime,
@@ -72,7 +72,7 @@ object ParkingMeterMapper {
             MaxTimePeriodPerDay(
                 dayOfWeek = DayOfWeek.SUNDAY,
                 maxTimePeriodPerHours =
-                    buildHours(
+                    buildMaxTimePeriodPerHour(
                         am = meter.t_su_9a_6p,
                         pm = meter.t_su_6p_10,
                         meterOperationTime = meterOperationTime,
@@ -82,7 +82,7 @@ object ParkingMeterMapper {
         return weekdayDays + saturday + sunday
     }
 
-    private fun buildHours(
+    fun buildMaxTimePeriodPerHour(
         am: String,
         pm: String,
         meterOperationTime: TimePeriod,
@@ -106,7 +106,7 @@ object ParkingMeterMapper {
         return hours
     }
 
-    private fun parseDuration(value: String): Minute? =
+    fun parseDuration(value: String): Minute? =
         when {
             value.contains("No Time Limit", ignoreCase = true) -> null
             value.contains("Hr", ignoreCase = true) -> {
@@ -165,7 +165,7 @@ object ParkingMeterMapper {
         return weekdayDays + saturday + sunday
     }
 
-    private fun buildRateHours(
+    fun buildRateHours(
         am: String,
         pm: String,
         meterOperationTime: TimePeriod,
@@ -188,7 +188,7 @@ object ParkingMeterMapper {
         return hours
     }
 
-    private fun buildMeterOperationTime(timeineffe: String): TimePeriod {
+    fun buildMeterOperationTime(timeineffe: String): TimePeriod {
         val regex = Regex("""(\d{1,2}:\d{2} [AP]M) TO (\d{1,2}:\d{2} [AP]M)""")
         val matchResult =
             regex.find(timeineffe)

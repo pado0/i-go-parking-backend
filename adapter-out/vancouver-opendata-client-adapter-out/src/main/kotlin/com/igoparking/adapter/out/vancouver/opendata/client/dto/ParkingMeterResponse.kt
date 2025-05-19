@@ -21,13 +21,13 @@ data class Meter(
     val t_sa_6p_10: String,
     val t_su_9a_6p: String,
     val t_su_6p_10: String,
-    val time_misc: String?,
-    val creditcard: String,
-    val pay_phone: String,
-    val geom: GeometryWrapper,
-    val geo_local_area: String,
-    val meterid: String,
-    val geo_point_2d: GeoPoint2D,
+    val time_misc: String? = null,
+    val creditcard: String? = null,
+    val pay_phone: String? = null,
+    val geom: GeometryWrapper? = null,
+    val geo_local_area: String? = null,
+    val meterid: String? = null,
+    val geo_point_2d: GeoPoint2D? = null,
 )
 
 data class GeometryWrapper(
