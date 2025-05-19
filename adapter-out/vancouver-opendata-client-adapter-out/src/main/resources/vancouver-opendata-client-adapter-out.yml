@@ -1,0 +1,8 @@
+spring:
+    profiles:
+        include:
+            - feign-adapter-out
+
+client:
+    vancouver-opendata:
+        host: https://opendata.vancouver.ca

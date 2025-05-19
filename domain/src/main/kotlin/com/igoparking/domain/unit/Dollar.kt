@@ -4,3 +4,5 @@ package com.igoparking.domain.unit
 value class Dollar(
     val value: Double,
 )
+
+fun String.toDollar(): Dollar = Dollar(this.replace("$", "").trim().toDouble())
