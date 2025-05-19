@@ -38,7 +38,8 @@ data class ParkingMeter(
                 ?.firstOrNull { it.dayOfWeek == startTime.dayOfWeek }
                 ?.maxTimePeriodPerHours
                 ?.firstOrNull { it.startHour.hour == startTime.hour }
-                ?.duration ?: throw IllegalArgumentException("No maximum parking duration found for the specified day and hour.")
+                ?.duration
+                ?: return true // no limitation
 
         val requestedDuration = Duration.between(startTime, endTime)
 

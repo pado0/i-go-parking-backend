@@ -1,0 +1,78 @@
+spring:
+    cloud:
+        openfeign:
+            okhttp:
+                enabled: true
+            httpclient:
+                disable-ssl-validation: true
+                max-connections: 1000
+            client:
+                config:
+                    default:
+                        connect-timeout: 5000 # 5s
+                        read-timeout: 5000    # 5s
+                        logger-level: FULL
+
+resilience4j:
+    circuitbreaker:
+        configs:
+            default:
+                registerHealthIndicator: true
+                slidingWindowSize: 10
+                minimumNumberOfCalls: 1
+                permittedNumberOfCallsInHalfOpenState: 5
+                automaticTransitionFromOpenToHalfOpenEnabled: true
+                waitDurationInOpenState: 5s
+                failureRateThreshold: 60
+                eventConsumerBufferSize: 10
+                ignore-exceptions:
+                    - feign.FeignException.NotFound
+                    - feign.FeignException.Unauthorized
+                    - feign.FeignException.BadRequest
+                    - feign.FeignException.Forbidden
+
+---
+spring:
+    config:
+        activate:
+            on-profile: local
+
+---
+spring:
+    config:
+        activate:
+            on-profile: dev
+
+resilience4j:
+    circuitbreaker:
+        configs:
+            default:
+                minimumNumberOfCalls: 3
+                slow-call-duration-threshold: 10s
+                waitDurationInOpenState: 30s
+
+---
+spring:
+    config:
+        activate:
+            on-profile: beta
+
+resilience4j:
+    circuitbreaker:
+        configs:
+            default:
+                minimumNumberOfCalls: 3
+                slow-call-duration-threshold: 10s
+                waitDurationInOpenState: 30s
+
+---
+spring:
+    config:
+        activate:
+            on-profile: prod
+
+feign:
+    client:
+        config:
+            default:
+                loggerLevel: BASIC

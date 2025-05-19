@@ -108,7 +108,8 @@ fabric.properties
 build/
 **/build/
 !src/**/build/
-
+**/META-INF
+*/out
 # Ignore Gradle GUI config
 gradle-app.setting
 

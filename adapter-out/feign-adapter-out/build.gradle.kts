@@ -1,5 +1,7 @@
 dependencies {
-    implementation(project(":port-in:usecase-api-port-in"))
-    implementation(project(":port-out:mcp-port-out"))
-    implementation(project(":domain"))
+
+    // for using client adapter, apply api level
+    api("org.springframework.cloud:spring-cloud-starter-openfeign")
+    api("org.springframework.retry:spring-retry")
+    api("org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j")
 }

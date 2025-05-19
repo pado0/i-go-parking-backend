@@ -12,7 +12,8 @@ import java.time.LocalTime
 import kotlin.test.BeforeTest
 
 @DisplayName("ParkingMeter Test")
-class ParkingMeterTest {
+class
+ParkingMeterTest {
     private lateinit var parkingMeter: ParkingMeter
 
     @BeforeTest
@@ -32,6 +33,7 @@ class ParkingMeterTest {
         parkingMeter =
             ParkingMeter(
                 maxTimePeriodPerDays = listOf(maxTimePeriodPerDay),
+                meterOperationTime = TimePeriod(LocalTime.of(9, 0), LocalTime.of(22, 0)),
             )
     }
 
@@ -75,6 +77,20 @@ class ParkingMeterTest {
 
             // Then: Should be invalid
             isValid shouldBe false
+        }
+
+        @Test
+        @DisplayName("should be invalid for parking requests for no time limit case")
+        fun isInValidForNoLimitDuration() {
+            // When: Request to park from 12 PM for 2 hours and 1 minute on Saturday
+            val isValid =
+                parkingMeter.isValidMaxTimePeriod(
+                    startTime = testDate.plusHours(22).plusMinutes(1),
+                    endTime = testDate.plusHours(22).plusMinutes(30),
+                )
+
+            // Then: Should be invalid
+            isValid shouldBe true
         }
 
         @Test

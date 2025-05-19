@@ -25,6 +25,9 @@ findProject(":adapter-out:mcp-adapter-out")?.name = "mcp-adapter-out"
 include("adapter-out:feign-adapter-out")
 findProject(":adapter-out:feign-adapter-out")?.name = "feign-adapter-out"
 
+include("adapter-out:vancouver-opendata-client-adapter-out")
+findProject(":adapter-out:vancouver-opendata-client-adapter-out")?.name = "vancouver-opendata-client-adapter-out"
+
 include("port-in:usecase-api-port-in")
 findProject(":port-in:usecase-api-port-in")?.name = "usecase-api-port-in"
 
@@ -33,6 +36,9 @@ findProject(":port-out:mcp-port-out")?.name = "mcp-port-out"
 
 include("port-out:persistence-port-out")
 findProject(":port-out:persistence-port-out")?.name = "persistence-port-out"
+
+include("port-out:parking-worker-port-out")
+findProject(":port-out:parking-worker-port-out")?.name = "parking-worker-port-out"
 
 include("application:usecase-api")
 findProject(":application:usecase-api")?.name = "usecase-api"
